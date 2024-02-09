@@ -1,0 +1,336 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="/">moose</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item active"><a href="/articles" class="nav-link">Articles</a></li>
+                <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <section class="hero-wrap hero-wrap-2">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 text-center ftco-animate pt-5">
+                <h1 class="mb-3 bread">Our Blog</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i
+                            class="fa fa-chevron-right"></i></a></span>
+                        <span>About <i class="fa fa-chevron-right"></i></span></p>
+            </div>
+        </div>
+    </section>
+    <section class="ftco-section">
+    <div class="container-fluid">
+        <div class="row">
+            {% for post in posts %}
+                {% if forloop.counter != 4%}
+                    <div class="col-md-6 col-lg-4 blog-wrap blog-wrap-2 px-md-5 ftco-animate">
+                <a href="/blog/{{ post.id }}" class="img img-blog w-100 border d-block"
+                   style="background-image: url({{ post.image.url }});">
+                </a>
+                <div class="text text-2 py-4 p-0 ftco-animate">
+                    <p class="meta">
+                        <a href="#"><span class="fa fa-calendar mr-2"></span>{{ post.created_at }}</a>
+                        <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>
+                        <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span></a>
+                    </p>
+                    <h2 class="mb-4"><a href="/blog/{{ post.id }}">{{ post.title }}</a>
+                    </h2>
+                    <div class="icon d-flex align-items-center">
+                        <div class="img" style="background-image: url({{ post.photo.url }});"></div>
+                        <div class="position pl-3">
+                            <h4 class="mb-0">{{ post.name }}</h4>
+                            <span>{{ post.work_place }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                {% endif%}
+            {% endfor %}
+            <!--            <div class="col-md-6 col-lg-4 blog-wrap blog-wrap-2 px-md-5 ftco-animate">-->
+            <!--                <a href="blog-single.html" class="img img-blog w-100 border d-block"-->
+            <!--                   style="background-image: url({% static 'images/image_2.jpg' %});">-->
+            <!--                </a>-->
+            <!--                <div class="text text-2 py-4 p-0 ftco-animate">-->
+            <!--                    <p class="meta">-->
+            <!--                        <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 27, 2020</a>-->
+            <!--                        <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>-->
+            <!--                        <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>-->
+            <!--                    </p>-->
+            <!--                    <h2 class="mb-4"><a href="blog-single.html">Turning a digital brand into a real world experience</a>-->
+            <!--                    </h2>-->
+            <!--                    <div class="icon d-flex align-items-center">-->
+            <!--                        <div class="img" style="background-image: url({% static 'images/person_2.jpg' %});"></div>-->
+            <!--                        <div class="position pl-3">-->
+            <!--                            <h4 class="mb-0">Jamie Jonson</h4>-->
+            <!--                            <span>CEO, Product Designer</span>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-6 col-lg-4 blog-wrap blog-wrap-2 px-md-5 ftco-animate">-->
+            <!--                <a href="blog-single.html" class="img img-blog w-100 border d-block"-->
+            <!--                   style="background-image: url({% static 'images/image_3.jpg' %});">-->
+            <!--                </a>-->
+            <!--                <div class="text text-2 py-4 p-0 ftco-animate">-->
+            <!--                    <p class="meta">-->
+            <!--                        <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 27, 2020</a>-->
+            <!--                        <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>-->
+            <!--                        <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>-->
+            <!--                    </p>-->
+            <!--                    <h2 class="mb-4"><a href="blog-single.html">Turning a digital brand into a real world experience</a>-->
+            <!--                    </h2>-->
+            <!--                    <div class="icon d-flex align-items-center">-->
+            <!--                        <div class="img" style="background-image: url({% static 'images/person_3.jpg' %});"></div>-->
+            <!--                        <div class="position pl-3">-->
+            <!--                            <h4 class="mb-0">Jamie Jonson</h4>-->
+            <!--                            <span>CEO, Product Designer</span>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-6 col-lg-4 blog-wrap blog-wrap-2 px-md-5 ftco-animate">-->
+            <!--                <a href="blog-single.html" class="img img-blog w-100 border d-block"-->
+            <!--                   style="background-image: url({% static 'images/image_4.jpg' %});">-->
+            <!--                </a>-->
+            <!--                <div class="text text-2 py-4 p-0 ftco-animate">-->
+            <!--                    <p class="meta">-->
+            <!--                        <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 27, 2020</a>-->
+            <!--                        <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>-->
+            <!--                        <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>-->
+            <!--                    </p>-->
+            <!--                    <h2 class="mb-4"><a href="blog-single.html">Turning a digital brand into a real world experience</a>-->
+            <!--                    </h2>-->
+            <!--                    <div class="icon d-flex align-items-center">-->
+            <!--                        <div class="img" style="background-image: url({% static 'images/person_4.jpg' %});"></div>-->
+            <!--                        <div class="position pl-3">-->
+            <!--                            <h4 class="mb-0">Jamie Jonson</h4>-->
+            <!--                            <span>CEO, Product Designer</span>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-6 col-lg-4 blog-wrap blog-wrap-2 px-md-5 ftco-animate">-->
+            <!--                <a href="blog-single.html" class="img img-blog w-100 border d-block"-->
+            <!--                   style="background-image: url({% static 'images/image_5.jpg' %});">-->
+            <!--                </a>-->
+            <!--                <div class="text text-2 py-4 p-0 ftco-animate">-->
+            <!--                    <p class="meta">-->
+            <!--                        <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 27, 2020</a>-->
+            <!--                        <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>-->
+            <!--                        <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>-->
+            <!--                    </p>-->
+            <!--                    <h2 class="mb-4"><a href="blog-single.html">Turning a digital brand into a real world experience</a>-->
+            <!--                    </h2>-->
+            <!--                    <div class="icon d-flex align-items-center">-->
+            <!--                        <div class="img" style="background-image: url({% static 'images/person_1.jpg' %});"></div>-->
+            <!--                        <div class="position pl-3">-->
+            <!--                            <h4 class="mb-0">Jamie Jonson</h4>-->
+            <!--                            <span>CEO, Product Designer</span>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-6 col-lg-4 blog-wrap blog-wrap-2 px-md-5 ftco-animate">-->
+            <!--                <a href="blog-single.html" class="img img-blog w-100 border d-block"-->
+            <!--                   style="background-image: url({% static 'images/image_6.jpg' %});">-->
+            <!--                </a>-->
+            <!--                <div class="text text-2 py-4 p-0 ftco-animate">-->
+            <!--                    <p class="meta">-->
+            <!--                        <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 27, 2020</a>-->
+            <!--                        <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>-->
+            <!--                        <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>-->
+            <!--                    </p>-->
+            <!--                    <h2 class="mb-4"><a href="blog-single.html">Turning a digital brand into a real world experience</a>-->
+            <!--                    </h2>-->
+            <!--                    <div class="icon d-flex align-items-center">-->
+            <!--                        <div class="img" style="background-image: url({% static 'images/person_2.jpg' %});"></div>-->
+            <!--                        <div class="position pl-3">-->
+            <!--                            <h4 class="mb-0">Jamie Jonson</h4>-->
+            <!--                            <span>CEO, Product Designer</span>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-6 col-lg-4 blog-wrap blog-wrap-2 px-md-5 ftco-animate">-->
+            <!--                <a href="blog-single.html" class="img img-blog w-100 border d-block"-->
+            <!--                   style="background-image: url({% static 'images/image_7.jpg' %});">-->
+            <!--                </a>-->
+            <!--                <div class="text text-2 py-4 p-0 ftco-animate">-->
+            <!--                    <p class="meta">-->
+            <!--                        <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 27, 2020</a>-->
+            <!--                        <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>-->
+            <!--                        <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>-->
+            <!--                    </p>-->
+            <!--                    <h2 class="mb-4"><a href="blog-single.html">Turning a digital brand into a real world experience</a>-->
+            <!--                    </h2>-->
+            <!--                    <div class="icon d-flex align-items-center">-->
+            <!--                        <div class="img" style="background-image: url({% static 'images/person_3.jpg' %});"></div>-->
+            <!--                        <div class="position pl-3">-->
+            <!--                            <h4 class="mb-0">Jamie Jonson</h4>-->
+            <!--                            <span>CEO, Product Designer</span>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-6 col-lg-4 blog-wrap blog-wrap-2 px-md-5 ftco-animate">-->
+            <!--                <a href="blog-single.html" class="img img-blog w-100 border d-block"-->
+            <!--                   style="background-image: url({% static 'images/image_8.jpg' %});">-->
+            <!--                </a>-->
+            <!--                <div class="text text-2 py-4 p-0 ftco-animate">-->
+            <!--                    <p class="meta">-->
+            <!--                        <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 27, 2020</a>-->
+            <!--                        <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>-->
+            <!--                        <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>-->
+            <!--                    </p>-->
+            <!--                    <h2 class="mb-4"><a href="blog-single.html">Turning a digital brand into a real world experience</a>-->
+            <!--                    </h2>-->
+            <!--                    <div class="icon d-flex align-items-center">-->
+            <!--                        <div class="img" style="background-image: url({% static 'images/person_3.jpg' %});"></div>-->
+            <!--                        <div class="position pl-3">-->
+            <!--                            <h4 class="mb-0">Jamie Jonson</h4>-->
+            <!--                            <span>CEO, Product Designer</span>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-6 col-lg-4 blog-wrap blog-wrap-2 px-md-5 ftco-animate">-->
+            <!--                <a href="blog-single.html" class="img img-blog w-100 border d-block"-->
+            <!--                   style="background-image: url({% static 'images/image_9.jpg'%});">-->
+            <!--                </a>-->
+            <!--                <div class="text text-2 py-4 p-0 ftco-animate">-->
+            <!--                    <p class="meta">-->
+            <!--                        <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 27, 2020</a>-->
+            <!--                        <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>-->
+            <!--                        <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>-->
+            <!--                    </p>-->
+            <!--                    <h2 class="mb-4"><a href="blog-single.html">Turning a digital brand into a real world experience</a>-->
+            <!--                    </h2>-->
+            <!--                    <div class="icon d-flex align-items-center">-->
+            <!--                        <div class="img" style="background-image: url({% static 'images/person_3.jpg' %});"></div>-->
+            <!--                        <div class="position pl-3">-->
+            <!--                            <h4 class="mb-0">Jamie Jonson</h4>-->
+            <!--                            <span>CEO, Product Designer</span>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-6 col-lg-4 blog-wrap blog-wrap-2 px-md-5 ftco-animate">-->
+            <!--                <a href="blog-single.html" class="img img-blog w-100 border d-block"-->
+            <!--                   style="background-image: url({% static 'images/image_10.jpg' %});">-->
+            <!--                </a>-->
+            <!--                <div class="text text-2 py-4 p-0 ftco-animate">-->
+            <!--                    <p class="meta">-->
+            <!--                        <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 27, 2020</a>-->
+            <!--                        <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>-->
+            <!--                        <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>-->
+            <!--                    </p>-->
+            <!--                    <h2 class="mb-4"><a href="blog-single.html">Turning a digital brand into a real world experience</a>-->
+            <!--                    </h2>-->
+            <!--                    <div class="icon d-flex align-items-center">-->
+            <!--                        <div class="img" style="background-image: url({% static 'images/person_3.jpg' %});"></div>-->
+            <!--                        <div class="position pl-3">-->
+            <!--                            <h4 class="mb-0">Jamie Jonson</h4>-->
+            <!--                            <span>CEO, Product Designer</span>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-6 col-lg-4 blog-wrap blog-wrap-2 px-md-5 ftco-animate">-->
+            <!--                <a href="blog-single.html" class="img img-blog w-100 border d-block"-->
+            <!--                   style="background-image: url({% static 'images/image_11.jpg' %});">-->
+            <!--                </a>-->
+            <!--                <div class="text text-2 py-4 p-0 ftco-animate">-->
+            <!--                    <p class="meta">-->
+            <!--                        <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 27, 2020</a>-->
+            <!--                        <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>-->
+            <!--                        <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>-->
+            <!--                    </p>-->
+            <!--                    <h2 class="mb-4"><a href="blog-single.html">Turning a digital brand into a real world experience</a>-->
+            <!--                    </h2>-->
+            <!--                    <div class="icon d-flex align-items-center">-->
+            <!--                        <div class="img" style="background-image: url({% static 'images/person_3.jpg' %});"></div>-->
+            <!--                        <div class="position pl-3">-->
+            <!--                            <h4 class="mb-0">Jamie Jonson</h4>-->
+            <!--                            <span>CEO, Product Designer</span>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-6 col-lg-4 blog-wrap blog-wrap-2 px-md-5 ftco-animate">-->
+            <!--                <a href="blog-single.html" class="img img-blog w-100 border d-block"-->
+            <!--                   style="background-image: url({% static 'images/image_12.jpg' %});">-->
+            <!--                </a>-->
+            <!--                <div class="text text-2 py-4 p-0 ftco-animate">-->
+            <!--                    <p class="meta">-->
+            <!--                        <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 27, 2020</a>-->
+            <!--                        <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>-->
+            <!--                        <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>-->
+            <!--                    </p>-->
+            <!--                    <h2 class="mb-4"><a href="blog-single.html">Turning a digital brand into a real world experience</a>-->
+            <!--                    </h2>-->
+            <!--                    <div class="icon d-flex align-items-center">-->
+            <!--                        <div class="img" style="background-image: url({% static 'images/person_3.jpg' %});"></div>-->
+            <!--                        <div class="position pl-3">-->
+            <!--                            <h4 class="mb-0">Jamie Jonson</h4>-->
+            <!--                            <span>CEO, Product Designer</span>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+        </div>
+        <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    <ul>
+                        {% if posts.has_previous %}
+                            <li><a href="?page={{ posts.previous_page_number }}"><</a></li>
+                        {% endif %}
+                        {% for page in posts.paginator.page_range %}
+                            {% if page == post.number %}
+                                <li class="active"><span>{{ page }}</span></li>
+                            {% else %}
+                                <li><a href="?page={{ page }}">{{ page }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if posts.have_next %}
+                            <li><a href="?page={{ post.next_page_number }}">></a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <section class="ftco-intro ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <h2>Subscribe to our Newsletter</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
+                        <form action="#" class="subscribe-form">
+                            <div class="form-group d-flex">
+                                <input type="text" class="form-control" placeholder="Enter email address">
+                                <input type="submit" value="Subscribe" class="submit px-3">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+{% endblock %}
