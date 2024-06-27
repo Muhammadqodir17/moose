@@ -140,4 +140,4 @@ AWS_DEFAULT_ACL = None
 AWS_S3_VERITY = True
 AWS_S3_ADDRESSING_STYLE = 'virtual'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# STSICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STSICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
