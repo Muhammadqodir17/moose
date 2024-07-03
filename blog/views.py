@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 import requests
 from blog.models import Post, Contact, Comment
 
-
+# tp
 def home_view(request):
     posts = Post.objects.filter(is_published=True)
 
