@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1=am$&q*&@6z_k85t12sew+e9-(6q^958h3($zmldvug6#x7@7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -130,14 +129,14 @@ MEDIA_ROOT = 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AWS_ACCESS_KEY_ID = 'DO00FMHAKFCE6LRAEZCW'
-AWS_SECRET_ACCESS_KEY = 'ItiX5qd62nXLki+vL8bZTfXBvJxdlN59pZv0d1yGOA4'
-AWS_STORAGE_BUCKET_NAME = 'uzmovie'
-AWS_S3_SIGNATURE_NAME = 's3v4'
-AWS_S3_REGION_NAME = 'us-east-2'
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-AWS_S3_VERITY = True
-# AWS_S3_ADDRESSING_STYLE = 'virtual'
+AWS_ACCESS_KEY_ID = 'DO00X7KW2E8Q4EQGGRCW'
+AWS_SECRET_ACCESS_KEY = 'iRMinMjTiKzcY7ThShPihKgpcR9dSp6rIcBFyK+0evA'
+AWS_STORAGE_BUCKET_NAME = 'moose'
+
+AWS_S3_ENDPOINT_URL = 'https://quloq.fra1.digitaloceanspaces.com'
+AWS_S3_CUSTOM_DOMAIN = 'quloq.fra1.digitaloceanspaces.com/' + AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+    'ACL': 'public-read'
+}
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# STSICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

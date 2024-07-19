@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 import requests
 from blog.models import Post, Contact, Comment
 
-# tp
+
 def home_view(request):
     posts = Post.objects.filter(is_published=True)
 
@@ -37,6 +37,7 @@ def blog_detail_view(request, pk):
         data = request.POST
         obj = Comment.objects.create(post_id=pk, name=data['name'], email=data['email'], message=data['message'])
         obj.save()
+
         return redirect(f'/blog/{pk}')
     post = Post.objects.filter(id=pk).first()
     comments = Comment.objects.filter(post_id=pk)
@@ -48,7 +49,7 @@ def about_view(request):
     context = {
         'about': 'active'
     }
-    return render(request, 'about.html')
+    return render(request, 'about.html', context)
 
 
 def contact_view(request):
